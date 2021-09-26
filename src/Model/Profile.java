@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,11 +16,17 @@ import java.util.Date;
 public class Profile {
     
     private String name;
-     
-    private Address address;
     
-    private Date date_of_birth;
-     
+    //private String Address;
+    
+    private String addressLine1;        
+    private String addressLine2;
+    private String city;
+    private String State;
+    private int zip;
+    
+    private Date dateOfBirth;
+    
     private String phoneNumber;     //format (xxx) xxx-xxxx
     
     private String faxNumber;       // format (xxx) xxx-xxxx
@@ -35,7 +43,7 @@ public class Profile {
     
     private String birthCertificateNumber;      //XXX-XX-XXXXXX
     
-    private String license_no;  
+    private String license_no;          // 9-11 characters 
     
     private String vehicleIdentificationNumber;       //17 characters
     
@@ -57,6 +65,19 @@ public class Profile {
     
     private String uniqueIdentifier;        //unique 10-digit number
 
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        try {
+           this.dateOfBirth = formatter.parse(dateOfBirth);
+        }catch(ParseException e){
+           this.dateOfBirth = null;
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -65,20 +86,44 @@ public class Profile {
         this.name = name;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public Date getDate_of_birth() {
-        return date_of_birth;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String State) {
+        this.State = State;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
     }
 
     public String getPhoneNumber() {
@@ -235,10 +280,7 @@ public class Profile {
 
     @Override
     public String toString() {
-        return "Profile{" + "name=" + name + ", address=" + address + ", date_of_birth=" + date_of_birth + ", phoneNumber=" + phoneNumber + ", faxNumber=" + faxNumber + ", emailAddress=" + emailAddress + ", ssn=" + ssn + ", medicalRecordNumber=" + medicalRecordNumber + ", healthBeneficiaryNumber=" + healthBeneficiaryNumber + ", bankAccountNumber=" + bankAccountNumber + ", birthCertificateNumber=" + birthCertificateNumber + ", license_no=" + license_no + ", vehicleIdentificationNumber=" + vehicleIdentificationNumber + ", vehicleLicensePlate=" + vehicleLicensePlate + ", deviceId=" + deviceId + ", deviceSerialNumber=" + deviceSerialNumber + ", linkedin=" + linkedin + ", ip=" + ip + ", biometricFingerPrint=" + biometricFingerPrint + ", biometricRetinaScan=" + biometricRetinaScan + ", photo=" + photo + ", uniqueIdentifier=" + uniqueIdentifier + '}';
+        return "Profile{" + "name=" + name + ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", city=" + city + ", State=" + State + ", zip=" + zip + ", dateOfBirth=" + dateOfBirth + ", phoneNumber=" + phoneNumber + ", faxNumber=" + faxNumber + ", emailAddress=" + emailAddress + ", ssn=" + ssn + ", medicalRecordNumber=" + medicalRecordNumber + ", healthBeneficiaryNumber=" + healthBeneficiaryNumber + ", bankAccountNumber=" + bankAccountNumber + ", birthCertificateNumber=" + birthCertificateNumber + ", license_no=" + license_no + ", vehicleIdentificationNumber=" + vehicleIdentificationNumber + ", vehicleLicensePlate=" + vehicleLicensePlate + ", deviceId=" + deviceId + ", deviceSerialNumber=" + deviceSerialNumber + ", linkedin=" + linkedin + ", ip=" + ip + ", biometricFingerPrint=" + biometricFingerPrint + ", biometricRetinaScan=" + biometricRetinaScan + ", photo=" + photo + ", uniqueIdentifier=" + uniqueIdentifier + '}';
     }
-
-    
-    
     
 }
