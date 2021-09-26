@@ -8,6 +8,8 @@ package ui;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -1154,7 +1156,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtName.setText(profile.getName());
         txtSsn.setText(profile.getSsn());
         if(profile.getDateOfBirth()!=null){
-            txtDateofBirth.setText(profile.getDateOfBirth().toString());
+            txtDateofBirth.setText((new SimpleDateFormat("MM/dd/yyyy")).format(profile.getDateOfBirth()));
         }
         txtBirthCertificate.setText(profile.getBirthCertificateNumber());
         txtLicense.setText(profile.getLicense_no());
