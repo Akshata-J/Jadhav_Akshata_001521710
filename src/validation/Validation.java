@@ -69,7 +69,8 @@ public class Validation {
     public static String validatePhoneNumber(String phoneNumber){
         
          //format (xxx)xxx-xxxx
-        String regEx = "^\\([0-9]{3}\\)[0-9]{3}-[0-9]{4}$";
+        //String regEx = "^\\([0-9]{3}\\)[0-9]{3}-[0-9]{4}$";
+        String regEx = "^\\([1-9][0-9]{2}\\)[0-9]{3}-[0-9]{4}$";
         
         return isEmptyOrInvalid(regEx, phoneNumber, "Phone Number");
     }
@@ -77,7 +78,9 @@ public class Validation {
     public static String validateFaxNumber(String faxNumber){
         
         //format (xxx)xxx-xxxx
-        String regEx = "^\\([0-9]{3}\\)[0-9]{3}-[0-9]{4}$";
+        //String regEx = "^\\([0-9]{3}\\)[0-9]{3}-[0-9]{4}$";
+        String regEx = "^\\([1-9][0-9]{2}\\)[0-9]{3}-[0-9]{4}$";
+       
         return isEmptyOrInvalid(regEx, faxNumber, "Fax Number");
     }
     
@@ -108,7 +111,8 @@ public class Validation {
         
         //format xxxx-xxx-xxxx
         
-        String regEx = "^[0-9]{4}-[0-9]{3}-[0-9]{4}$";
+        //String regEx = "^[0-9]{4}-[0-9]{3}-[0-9]{4}$";
+        String regEx = "^[1-9][0-9]{3}-[0-9]{3}-[0-9]{4}$";
         return isEmptyOrInvalid(regEx, hbn, "Health Beneficiary Number");
         
     }
@@ -126,6 +130,7 @@ public class Validation {
         
         //format XXX-XX-XXXXXX
         String regEx = "^[0-9]{3}-[0-9]{2}-[0-9]{6}$";
+        
         return isEmptyOrInvalid(regEx, bcn, "Birth Certificate Number");
         
     }
