@@ -222,9 +222,9 @@ public class AdminAddMultipleCarsJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(btnUploadFile, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
@@ -448,6 +448,10 @@ public class AdminAddMultipleCarsJPanel extends javax.swing.JPanel {
     }
 
     private void updateTable() {
+        
+        
+        
+        
         int rowCount = adminFileViewTable.getRowCount();
         DefaultTableModel model = (DefaultTableModel) adminFileViewTable.getModel();
         for (int i = rowCount - 1; i >= 0; i--) {

@@ -29,6 +29,7 @@ public class AdminAddCarJPanel extends javax.swing.JPanel {
     private JPanel mainUIPanel;
     private MainJPanel mjp;
     private Uber uber;
+   
 
     /**
      * Creates new form AdminJPanel
@@ -386,6 +387,7 @@ public class AdminAddCarJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         Long sn = null;
         Integer my = null;
+        String mk = null;
         SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
         f.setLenient(false);
         Date emc = null;
@@ -394,6 +396,7 @@ public class AdminAddCarJPanel extends javax.swing.JPanel {
             sn = Long.parseLong(txtSerialNumber.getText());
             my = Integer.parseInt(txtManufactureYear.getText());
             emc = f.parse(txtExpiryDate.getText());
+           
         } catch (Exception e) {
             if (emc == null) {
                 message.add("Please provide Expire Date of Maintaince Certificate in \"MM/dd/yyyy\" format");
@@ -411,6 +414,7 @@ public class AdminAddCarJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Serial Number Already Exists!!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
         if (sn < 10000) {
             message.add("Serial number should be atleat 5 digits");
         }
@@ -435,29 +439,30 @@ public class AdminAddCarJPanel extends javax.swing.JPanel {
         }
 
         Car car = new Car();
-        car.setAvailability(jCheckBoxAvailability.isSelected()); //not required
-        car.setType(type);  // need some logic
+        car.setAvailability(jCheckBoxAvailability.isSelected());
+        car.setType(type);  
         car.setSerialNumber(sn); //Done
-        car.setModelNumber(txtModelNumber.getText()); //need to work
-        car.setMake(txtCarMake.getText()); //need to work
-        car.setManufacturedYear(my); //Done
-        car.setSeats((int) jSpinnerSeat.getValue()); //Done
-        car.setMaintenanceCertificateDate(emc); //Done
-        car.setCity(String.valueOf(jComboBoxCity.getSelectedItem())); //need to work
+        car.setModelNumber(txtModelNumber.getText()); 
+       
+        car.setMake(txtCarMake.getText()); 
+     
+        car.setManufacturedYear(my); 
+        car.setSeats((int) jSpinnerSeat.getValue()); 
+        car.setMaintenanceCertificateDate(emc); 
+        car.setCity(String.valueOf(jComboBoxCity.getSelectedItem())); 
         
         if(car.getType()==null){
             message.add("Please select type of the car");
         }
-        if(car.getModelNumber()==null){
+        if(car.getModelNumber().equals("")){
             message.add("Please provide correct Model Number");
         }
-        if(car.getMake()==null){
+        if(car.getMake().equals("")){
             message.add("Please provide correct make");
         }
         if(car.getCity().equalsIgnoreCase("Select")){
             message.add("Please select correct city");
         }
-        
         
         if (!message.isEmpty()) {
             JOptionPane.showMessageDialog(this, String.join("\n", message), "Error", JOptionPane.ERROR_MESSAGE);
@@ -559,6 +564,7 @@ public class AdminAddCarJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSerialNumber;
     // End of variables declaration//GEN-END:variables
     private String type = null;
+   
 
     private void emptyAllTextBox() {
 //        jRadioButtonPassenger.setSelected(false);
